@@ -19,12 +19,10 @@ public class MainActivity extends AppCompatActivity {
                         .Builder(this, (ViewGroup) findViewById(R.id.layout))
                         .setTitle("投稿")
                         .setRightText("发布")
-                        .setRightClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                Toast.makeText(MainActivity.this, "发布", Toast.LENGTH_SHORT).show();
-                            }
-                        })
+                        .setRightClickListener(v -> Toast.makeText(MainActivity.this, "发布", Toast.LENGTH_SHORT).show())
+                        .setLeftText("left")
+                        .setLeftClickListener(v -> Toast.makeText(MainActivity.this, "返回", Toast.LENGTH_SHORT).show())
+                        .setLeftTextClickListener(v -> Toast.makeText(this, "left", Toast.LENGTH_SHORT).show())
                         .builder();
 
         // 按返回默认关闭

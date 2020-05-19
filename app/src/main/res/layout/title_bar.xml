@@ -7,6 +7,12 @@
         style="@style/back_view" />
 
     <TextView
+        android:id="@+id/left_text"
+        style="@style/title_bar_button"
+        android:layout_toRightOf="@id/back"
+        android:visibility="gone" />
+
+    <TextView
         android:id="@+id/title"
         style="@style/title_text_style"
         android:layout_width="wrap_content"
@@ -23,4 +29,5 @@
         style="@style/title_bar_button"
         android:layout_alignParentRight="true"
         android:visibility="gone" />
+
 </RelativeLayout>

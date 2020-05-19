@@ -6,6 +6,9 @@ import android.view.ViewGroup;
 
 import com.anningtex.navigatinbar.navigationbar.AbsNavigationBar;
 
+/**
+ * @author alvis
+ */
 public class DefaultNavigationBar extends AbsNavigationBar<DefaultNavigationBar.Builder.DefaultNavigationBarParams> {
     public DefaultNavigationBar(Builder.DefaultNavigationBarParams params) {
         super(params);
@@ -21,8 +24,11 @@ public class DefaultNavigationBar extends AbsNavigationBar<DefaultNavigationBar.
         // 绑定效果
         setText(R.id.title, getmParams().mTitle);
         setText(R.id.right_text, getmParams().mRightText);
-
         setOnClickListener(R.id.right_text, getmParams().mRightClickListener);
+
+        setText(R.id.left_text, getmParams().mLeftText);
+        setOnClickListener(R.id.back, getmParams().mLeftClickListener);
+        setOnClickListener(R.id.left_text, getmParams().mLeftTextClickListener);
 
         // 左边 要写一个默认的 finishActivity
 
@@ -48,6 +54,7 @@ public class DefaultNavigationBar extends AbsNavigationBar<DefaultNavigationBar.
             return this;
         }
 
+        // right
         public DefaultNavigationBar.Builder setRightText(String rightText) {
             p.mRightText = rightText;
             return this;
@@ -58,8 +65,24 @@ public class DefaultNavigationBar extends AbsNavigationBar<DefaultNavigationBar.
             return this;
         }
 
-        public DefaultNavigationBar.Builder setRightClickListener(View.OnClickListener rightClickListenerightClickListener) {
-            p.mRightClickListener = rightClickListenerightClickListener;
+        public DefaultNavigationBar.Builder setRightClickListener(View.OnClickListener rightClickListener) {
+            p.mRightClickListener = rightClickListener;
+            return this;
+        }
+
+        // left
+        public DefaultNavigationBar.Builder setLeftText(String leftText) {
+            p.mLeftText = leftText;
+            return this;
+        }
+
+        public DefaultNavigationBar.Builder setLeftTextClickListener(View.OnClickListener leftTextClickListener) {
+            p.mLeftTextClickListener = leftTextClickListener;
+            return this;
+        }
+
+        public DefaultNavigationBar.Builder setLeftClickListener(View.OnClickListener leftClickListener) {
+            p.mLeftClickListener = leftClickListener;
             return this;
         }
 
@@ -68,6 +91,9 @@ public class DefaultNavigationBar extends AbsNavigationBar<DefaultNavigationBar.
             public String mRightText;
             public int mRightIconRes;
             public View.OnClickListener mRightClickListener;
+            public String mLeftText;
+            public View.OnClickListener mLeftTextClickListener;
+            public View.OnClickListener mLeftClickListener;
 
             // 所有效果的放置
 
