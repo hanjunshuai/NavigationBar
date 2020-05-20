@@ -1,5 +1,6 @@
 package com.anningtex.navigatinbar;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
@@ -93,7 +94,9 @@ public class DefaultNavigationBar extends AbsNavigationBar<DefaultNavigationBar.
             public View.OnClickListener mRightClickListener;
             public String mLeftText;
             public View.OnClickListener mLeftTextClickListener;
-            public View.OnClickListener mLeftClickListener;
+            public View.OnClickListener mLeftClickListener = v -> {
+                ((Activity) mContext).finish();
+            };
 
             // 所有效果的放置
 
