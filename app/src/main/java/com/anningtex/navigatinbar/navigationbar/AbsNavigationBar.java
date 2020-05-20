@@ -1,5 +1,6 @@
 package com.anningtex.navigatinbar.navigationbar;
 
+import android.app.Activity;
 import android.content.Context;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -29,6 +30,13 @@ public abstract class AbsNavigationBar<P extends AbsNavigationBar.Builder.AbsNav
      * 绑定和创建view
      */
     private void createAndBindView() {
+        if (getmParams().mParent == null) {
+            Activity activityRoot = (Activity) getmParams().mContext;
+            getmParams().mParent = activityRoot.findViewById((android.R.id.content));
+        }
+        if (getmParams().mParent == null) {
+            return;
+        }
         // 1、创建view
         mNavigationView = LayoutInflater.from(mParams.mContext).inflate(bindLayoutId(), mParams.mParent, false);
 

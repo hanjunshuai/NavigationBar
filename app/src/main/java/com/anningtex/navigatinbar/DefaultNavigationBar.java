@@ -38,6 +38,11 @@ public class DefaultNavigationBar extends AbsNavigationBar<DefaultNavigationBar.
     public static class Builder extends AbsNavigationBar.Builder {
         DefaultNavigationBarParams p;
 
+        public Builder(Context context) {
+            super(context, null);
+            p = new DefaultNavigationBarParams(context, null);
+        }
+
         public Builder(Context context, ViewGroup parent) {
             super(context, parent);
             p = new DefaultNavigationBarParams(context, parent);
